@@ -1,0 +1,41 @@
+{
+  "realm": "auth-realm",
+  "enabled": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "USER"
+      },
+      {
+        "name": "ADMIN"
+      }
+    ]
+  },
+  "clientScopes": [
+    {
+      "name": "service.read",
+      "protocol": "openid-connect",
+      "attributes": {
+        "display.on.consent.screen": "false",
+        "include.in.token.scope": "true"
+      },
+      "protocolMappers": []
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "auth-client",
+      "name": "Auth Service Client",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": false,
+      "serviceAccountsEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "standardFlowEnabled": true,
+      "optionalClientScopes": [
+        "service.read"
+      ],
+      "secret": "auth-client-secret"
+    }
+  ]
+}

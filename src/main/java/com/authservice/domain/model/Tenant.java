@@ -1,0 +1,14 @@
+package com.authservice.domain.model;
+
+import lombok.Builder;
+import lombok.Value;
+
+import java.util.UUID;
+
+@Value
+@Builder(toBuilder = true)
+public class Tenant {
+    UUID id;
+    String name;
+    String apiKey;
+}

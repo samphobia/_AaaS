@@ -1,0 +1,10 @@
+{
+  "chat.tools.terminal.autoApprove": {
+    "mvn test": true,
+    "docker compose": true,
+    "mvn spring-boot:run": true,
+    "mvn -q -DskipITs test": true,
+    "mvn -q -Dtest=AuthFlowContainerIT test": true,
+    "mvn -q spring-boot:run": true
+  }
+}

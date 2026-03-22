@@ -1,0 +1,45 @@
+server:
+  forward-headers-strategy: framework
+  servlet:
+    session:
+      cookie:
+        secure: true
+        http-only: true
+        same-site: strict
+
+spring:
+  cloud:
+    vault:
+      enabled: true
+      fail-fast: true
+      uri: ${VAULT_URI:http://localhost:8200}
+      token: ${VAULT_TOKEN:}
+      kv:
+        enabled: true
+        backend: secret
+        application-name: auth-service
+  datasource:
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-timeout: 2000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+auth:
+  mode: ${AUTH_MODE:MULTI_TENANT}
+  default-tenant-api-key: ${AUTH_DEFAULT_TENANT_API_KEY:dev-default-api-key}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    root: INFO
+    com.authservice.audit: INFO

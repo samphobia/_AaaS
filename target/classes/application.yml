@@ -1,0 +1,85 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: auth-service
+  cloud:
+    vault:
+      enabled: false
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5433/authdb}
+    username: ${DB_USERNAME:authuser}
+    password: ${DB_PASSWORD:authpass}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: false
+    open-in-view: false
+  flyway:
+    enabled: true
+
+keycloak:
+  base-url: ${KEYCLOAK_BASE_URL:http://localhost:8081}
+  realm: ${KEYCLOAK_REALM:auth-realm}
+  client-id: ${KEYCLOAK_CLIENT_ID:auth-client}
+  client-secret: ${KEYCLOAK_CLIENT_SECRET:auth-client-secret}
+  admin-realm: ${KEYCLOAK_ADMIN_REALM:master}
+  admin-username: ${KEYCLOAK_ADMIN_USERNAME:admin}
+  admin-password: ${KEYCLOAK_ADMIN_PASSWORD:admin}
+  admin-client-id: ${KEYCLOAK_ADMIN_CLIENT_ID:admin-cli}
+  admin-client-secret: ${KEYCLOAK_ADMIN_CLIENT_SECRET:}
+
+http:
+  client:
+    connect-timeout-ms: ${HTTP_CONNECT_TIMEOUT_MS:2000}
+    read-timeout-ms: ${HTTP_READ_TIMEOUT_MS:4000}
+
+resilience4j:
+  retry:
+    instances:
+      keycloak:
+        max-attempts: 3
+        wait-duration: 300ms
+  circuitbreaker:
+    instances:
+      keycloak:
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        permitted-number-of-calls-in-half-open-state: 3
+        wait-duration-in-open-state: 30s
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+auth:
+  mode: ${AUTH_MODE:MULTI_TENANT}
+  default-tenant-api-key: ${AUTH_DEFAULT_TENANT_API_KEY:dev-default-api-key}
+  secrets:
+    provider: ${AUTH_SECRETS_PROVIDER:env}
+    kms:
+      enabled: ${AUTH_KMS_ENABLED:false}
+      region: ${AUTH_KMS_REGION:eu-west-1}
+      key-id: ${AUTH_KMS_KEY_ID:}
+      encrypted-client-secret: ${AUTH_KMS_ENCRYPTED_CLIENT_SECRET:}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logging:
+  level:
+    root: INFO
+    com.authservice: INFO
