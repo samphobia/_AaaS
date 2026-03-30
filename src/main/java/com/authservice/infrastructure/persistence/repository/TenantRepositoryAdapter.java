@@ -19,4 +19,9 @@ public class TenantRepositoryAdapter implements TenantRepository {
         return springDataTenantRepository.findByApiKey(apiKey)
                 .map(TenantMapper::toDomain);
     }
+
+    @Override
+    public Tenant save(Tenant tenant) {
+        return TenantMapper.toDomain(springDataTenantRepository.save(TenantMapper.toEntity(tenant)));
+    }
 }

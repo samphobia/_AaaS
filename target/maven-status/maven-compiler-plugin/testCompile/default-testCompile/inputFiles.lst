@@ -1,6 +1,11 @@
 /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/AuthApplicationServiceTest.java
+/Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/CustomAttributeApplicationServiceTest.java
+/Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java
 /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/infrastructure/security/ApiKeyTenantResolverTest.java
 /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/infrastructure/security/DefaultTenantResolverTest.java
 /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthControllerIntegrationTest.java
 /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthFlowContainerIT.java
 /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthStandaloneModeIT.java
+/Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantAttributeControllerIntegrationTest.java
+/Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java
+/Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/UserAttributeControllerIntegrationTest.java

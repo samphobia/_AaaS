@@ -1,0 +1,245 @@
+2026.03.29 17:11:31 INFO  Started: Metals version 1.6.6 in folders '/Users/lateblackhole/Documents/KeyAuth' for client Visual Studio Code 1.111.0.
+2026.03.29 17:11:31 INFO  Memory monitor started
+2026.03.29 17:11:31 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/CustomAttributeApplicationService.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/AuthApplicationService.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/AuthController.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthControllerIntegrationTest.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/CustomAttributeApplicationServiceTest.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/AuthApplicationServiceTest.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/RegisterRequest.java
+2026.03.29 17:11:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/command/RegisterUserCommand.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/CustomAttributeApplicationServiceTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/UserAttributeControllerIntegrationTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/entity/CustomAttributeDefinitionEntity.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/CustomAttributeDefinitionRepositoryAdapter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/entity/UserAttributeValueEntity.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/SpringDataCustomAttributeDefinitionRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/CustomAttributeDefinitionMapper.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/AssignUserAttributesRequest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/UserAttributesResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/CustomAttributeApplicationService.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/UserAttributeValueMapper.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateAttributeDefinitionRequest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/UserAttributeValueRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/exception/BadRequestException.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/UserAttributeValueRepositoryAdapter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/SpringDataUserAttributeValueRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantAttributeControllerIntegrationTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/CustomAttributeDefinitionRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/AttributeDefinitionResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/infrastructure/security/ApiKeyTenantResolverTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/SpringDataAuditLogRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/entity/AuditLogEntity.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecretsProperties.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthFlowContainerIT.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/OpenApiConfig.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/UserAttributeController.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/KeycloakProperties.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/LoginResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/GlobalExceptionHandler.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/RegisterResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/LoginRequest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/CustomAttributeDefinition.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/AttributeType.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthStandaloneModeIT.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/infrastructure/security/DefaultTenantResolverTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/RefreshTokenRequest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/DefaultTenantResolver.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/ApiKeyTenantResolver.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/UserAttributeValue.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/ServiceTokenRequest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/AuditLogService.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/AuthProperties.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/KmsSecretBootstrap.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/HttpClientProperties.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthControllerIntegrationTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/AuthController.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/ErrorResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CurrentUserResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/AuthMode.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/AuthUserRepositoryAdapter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/TenantRepositoryAdapter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/TenantContextHolder.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/AuthMetadataMapper.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/entity/AuthUserEntity.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/SpringDataTenantRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/SpringDataAuthUserRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/entity/AuthMetadataEntity.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/TenantMapper.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/AuthApplicationService.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/entity/TenantEntity.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/ServicePrincipalResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/AuthApplicationServiceTest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/ServiceTokenResponse.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/RegisterUserUseCase.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/AuthMetadataRepositoryAdapter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TokenValidationResult.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/RegisterRequest.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/IdentityProviderClient.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/AuthMetadata.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/TenantFilter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/TenantResolver.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/JwtAuthenticationFilter.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/PropertiesConfig.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/Tenant.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/HttpClientConfig.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/Role.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/AuthUserMapper.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/LoginUseCase.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/SpringDataAuthMetadataRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/RefreshTokenUseCase.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/GetCurrentUserUseCase.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/command/LoginCommand.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TokenPair.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/command/RegisterUserCommand.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/exception/ConflictException.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/exception/UnauthorizedException.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/TenantRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/exception/NotFoundException.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/AuthMetadataRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/AuthUserRepository.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/model/AuthUser.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/AuthServiceApplication.java
+2026.03.29 17:11:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/usecase/command/RefreshTokenCommand.java
+2026.03.29 17:13:45 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/TenantRepository.java. Using fallback presentation compiler.
+2026.03.29 17:13:45 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/TenantRepository.java
+2026.03.29 17:13:55 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/TenantMapper.java. Using fallback presentation compiler.
+2026.03.29 17:13:55 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/TenantMapper.java
+2026.03.29 17:14:09 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/TenantRepositoryAdapter.java. Using fallback presentation compiler.
+2026.03.29 17:14:09 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/TenantRepositoryAdapter.java
+2026.03.29 17:14:25 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TenantProvisioningResult.java
+2026.03.29 17:14:25 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TenantProvisioningResult.java. Output:
+
+2026.03.29 17:14:25 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TenantProvisioningResult.java. Using fallback presentation compiler.
+2026.03.29 17:14:25 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TenantProvisioningResult.java
+2026.03.29 17:14:45 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java
+2026.03.29 17:14:45 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Output:
+
+2026.03.29 17:14:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+Mar 29, 2026 5:14:46 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2026.03.29 17:14:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:46 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Output:
+
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:14:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+Mar 29, 2026 5:14:48 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7
+2026.03.29 17:14:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java. Output:
+
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CreateTenantResponse.java
+2026.03.29 17:15:02 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CreateTenantResponse.java. Output:
+
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CreateTenantResponse.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java. Using fallback presentation compiler.
+2026.03.29 17:15:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java
+2026.03.29 17:15:03 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Output:
+
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CreateTenantResponse.java. Using fallback presentation compiler.
+2026.03.29 17:15:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CreateTenantResponse.java
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java. Using fallback presentation compiler.
+2026.03.29 17:15:03 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:15:02 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java
+2026.03.29 17:15:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:15:03 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:05 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:15:05 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java
+2026.03.29 17:15:05 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:29 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java
+2026.03.29 17:15:29 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java. Output:
+
+2026.03.29 17:15:29 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:29 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:29 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:29 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java
+2026.03.29 17:15:29 WARN  Running javac-semanticdb failed for file:///Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java. Output:
+
+2026.03.29 17:15:29 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:29 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:29 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:31 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:31 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:31 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java
+2026.03.29 17:15:31 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java. Using fallback presentation compiler.
+2026.03.29 17:15:31 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java
+2026.03.29 17:15:31 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:15:31 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:16:37 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:16:37 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/domain/repository/TenantRepository.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/mapper/TenantMapper.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/persistence/repository/TenantRepositoryAdapter.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/model/TenantProvisioningResult.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/response/CreateTenantResponse.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java
+2026.03.29 17:17:03 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java
+2026.03.29 17:17:03 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java
+2026.03.29 17:17:04 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:17:17 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/TenantOnboardingApplicationService.java. Using fallback presentation compiler.
+2026.03.29 17:17:23 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:17:24 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java
+Mar 29, 2026 5:17:24 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 30
+2026.03.29 17:17:23 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:17:24 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:17:26 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:17:39 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java. Using fallback presentation compiler.
+2026.03.29 17:17:39 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java
+2026.03.29 17:17:39 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:09 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:11 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:12 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:40 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java. Using fallback presentation compiler.
+2026.03.29 17:18:40 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java
+2026.03.29 17:18:43 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java. Using fallback presentation compiler.
+2026.03.29 17:18:43 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java. Using fallback presentation compiler.
+2026.03.29 17:18:45 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java. Using fallback presentation compiler.
+2026.03.29 17:18:45 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java
+2026.03.29 17:18:45 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java. Using fallback presentation compiler.
+2026.03.29 17:18:46 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantAttributeController.java. Using fallback presentation compiler.
+2026.03.29 17:18:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:47 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java
+2026.03.29 17:18:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:47 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:18:58 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:19:05 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:19:17 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 17:19:44 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 18:34:12 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/TenantControllerIntegrationTest.java
+2026.03.29 18:34:12 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/application/service/TenantOnboardingApplicationServiceTest.java
+2026.03.29 18:34:13 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 18:59:33 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/rest/TenantController.java. Using fallback presentation compiler.
+2026.03.29 19:09:05 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/AuthApplicationService.java. Using fallback presentation compiler.
+2026.03.29 19:09:08 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/AuthApplicationService.java. Using fallback presentation compiler.
+2026.03.29 19:09:08 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/AuthApplicationService.java. Using fallback presentation compiler.
+2026.03.29 19:09:10 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java. Using fallback presentation compiler.
+2026.03.29 19:09:10 INFO  Created report: Optional[file:///Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java]
+2026.03.29 19:09:10 INFO  empty definition using pc, found symbol in pc: _empty_/TokenPair#builder#accessToken# (full report at: "/Users/lateblackhole/Documents/KeyAuth/.metals/.reports/metals-full/2026-03-29/r_empty-definition_19-09-11-145.md")
+2026.03.29 19:09:14 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/CustomAttributeApplicationService.java. Using fallback presentation compiler.
+2026.03.29 19:09:15 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java. Using fallback presentation compiler.
+2026.03.29 19:09:15 INFO  empty definition using pc, found symbol in pc: _empty_/TokenPair#builder#accessToken# (full report at: "/Users/lateblackhole/Documents/KeyAuth/.metals/.reports/metals-full/2026-03-29/r_empty-definition_19-09-11-145.md")

@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.Map;
+
 @Data
 public class RegisterRequest {
 
@@ -18,4 +20,6 @@ public class RegisterRequest {
 
     @NotBlank
     private String externalUserId;
+
+    private Map<String, Object> attributes;
 }

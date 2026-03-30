@@ -1,6 +1,7 @@
 package com.authservice.interfaces.rest;
 
 import com.authservice.application.exception.ConflictException;
+import com.authservice.application.exception.BadRequestException;
 import com.authservice.application.exception.NotFoundException;
 import com.authservice.application.exception.UnauthorizedException;
 import com.authservice.interfaces.dto.response.ErrorResponse;
@@ -41,6 +42,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConflictException.class)
     public ResponseEntity<ErrorResponse> handleConflict(ConflictException ex, HttpServletRequest request) {
         return build(HttpStatus.CONFLICT, ex.getMessage(), request.getRequestURI());
+    }
+
+    @ExceptionHandler(BadRequestException.class)
+    public ResponseEntity<ErrorResponse> handleBadRequest(BadRequestException ex, HttpServletRequest request) {
+        return build(HttpStatus.BAD_REQUEST, ex.getMessage(), request.getRequestURI());
     }
 
     @ExceptionHandler(UnauthorizedException.class)

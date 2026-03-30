@@ -1,6 +1,7 @@
 package com.authservice.interfaces.rest;
 
 import com.authservice.application.service.AuthApplicationService;
+import com.authservice.application.service.CustomAttributeApplicationService;
 import com.authservice.application.service.IdentityProviderClient;
 import com.authservice.application.service.model.TokenPair;
 import com.authservice.domain.model.AuthUser;
@@ -21,6 +22,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -52,6 +54,9 @@ class AuthControllerIntegrationTest {
         @MockBean
         private TenantResolver tenantResolver;
 
+        @MockBean
+        private CustomAttributeApplicationService customAttributeApplicationService;
+
     @Test
     void register_ShouldReturnCreated() throws Exception {
         UUID userId = UUID.randomUUID();
@@ -75,6 +80,7 @@ class AuthControllerIntegrationTest {
         request.setEmail("test@mail.com");
         request.setPassword("StrongPass123");
         request.setExternalUserId("ext-1");
+        request.setAttributes(Map.of("name", "Alice", "idcard", "ID-123"));
 
         mockMvc.perform(post("/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -105,6 +111,7 @@ class AuthControllerIntegrationTest {
         request.setEmail("standalone@mail.com");
         request.setPassword("StrongPass123");
         request.setExternalUserId("ext-standalone");
+        request.setAttributes(Map.of("name", "Standalone User"));
 
         mockMvc.perform(post("/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -163,12 +170,14 @@ class AuthControllerIntegrationTest {
                 .roles(Set.of(Role.USER))
                 .active(true)
                 .build());
+        when(customAttributeApplicationService.getUserAttributes(any())).thenReturn(Map.of("department", "sales"));
 
         mockMvc.perform(get("/auth/me")
-                                                .principal(() -> "kc-1")
+                        .principal(() -> "kc-1")
                         .header("X-API-KEY", "dev-default-api-key"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.externalUserId").value("ext-1"));
+                .andExpect(jsonPath("$.externalUserId").value("ext-1"))
+                .andExpect(jsonPath("$.attributes.department").value("sales"));
     }
 
     @Test

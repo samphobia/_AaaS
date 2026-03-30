@@ -1,6 +1,7 @@
 package com.authservice.interfaces.rest;
 
 import com.authservice.application.service.AuthApplicationService;
+import com.authservice.application.service.CustomAttributeApplicationService;
 import com.authservice.application.exception.UnauthorizedException;
 import com.authservice.application.usecase.command.LoginCommand;
 import com.authservice.application.usecase.command.RefreshTokenCommand;
@@ -37,6 +38,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
@@ -44,6 +47,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
 
     private final AuthApplicationService authApplicationService;
+        private final CustomAttributeApplicationService customAttributeApplicationService;
         private final TenantResolver tenantResolver;
 
     @PostMapping("/register")
@@ -51,7 +55,7 @@ public class AuthController {
     @Operation(summary = "Register user", description = "Creates a Keycloak user and stores tenant-scoped external mapping")
     @io.swagger.v3.oas.annotations.parameters.RequestBody(
             required = true,
-            content = @Content(examples = @ExampleObject(value = "{\"email\":\"john.doe@acme.com\",\"password\":\"StrongPass123!\",\"externalUserId\":\"crm-10001\"}"))
+            content = @Content(examples = @ExampleObject(value = "{\"email\":\"john.doe@acme.com\",\"password\":\"StrongPass123!\",\"externalUserId\":\"crm-10001\",\"attributes\":{\"name\":\"John Doe\",\"idcard\":\"ID-10001\"}}"))
     )
     @ApiResponses({
             @ApiResponse(responseCode = "201", description = "User registered", content = @Content(schema = @Schema(implementation = RegisterResponse.class))),
@@ -67,6 +71,7 @@ public class AuthController {
                 .password(request.getPassword())
                 .externalUserId(request.getExternalUserId())
                 .apiKey(resolvedApiKey)
+                .attributes(request.getAttributes())
                 .build());
 
         return RegisterResponse.builder()
@@ -151,20 +156,30 @@ public class AuthController {
             @ApiResponse(responseCode = "401", description = "Invalid JWT or missing API key"),
             @ApiResponse(responseCode = "404", description = "Mapping not found")
     })
-        public CurrentUserResponse me(Authentication authentication) {
-                Authentication auth = authentication;
-                if (auth == null) {
-                        auth = SecurityContextHolder.getContext().getAuthentication();
-                }
-                if (auth == null || auth.getName() == null || auth.getName().isBlank()) {
-                        throw new UnauthorizedException("Missing authentication principal");
+        public CurrentUserResponse me(Principal principal) {
+                String principalName = null;
+                if (principal != null && principal.getName() != null && !principal.getName().isBlank()) {
+                        principalName = principal.getName();
                 }
 
-                var user = authApplicationService.getCurrentUser(auth.getName());
+                if (principalName == null) {
+                        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+                        if (auth != null && auth.getName() != null && !auth.getName().isBlank()) {
+                                principalName = auth.getName();
+                        }
+                }
+
+                if (principalName == null) {
+            throw new UnauthorizedException("Missing authentication principal");
+        }
+
+                var user = authApplicationService.getCurrentUser(principalName);
+        var attributes = customAttributeApplicationService.getUserAttributes(user.getId());
         return CurrentUserResponse.builder()
                 .externalUserId(user.getExternalUserId())
                 .tenantId(user.getTenantId())
                 .roles(user.getRoles())
+                .attributes(attributes)
                 .build();
     }
 

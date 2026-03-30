@@ -15,4 +15,12 @@ public final class TenantMapper {
                 .apiKey(entity.getApiKey())
                 .build();
     }
+
+    public static TenantEntity toEntity(Tenant tenant) {
+        return TenantEntity.builder()
+                .id(tenant.getId())
+                .name(tenant.getName())
+                .apiKey(tenant.getApiKey())
+                .build();
+    }
 }

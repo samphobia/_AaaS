@@ -31,4 +31,10 @@ public class AuthUserRepositoryAdapter implements AuthUserRepository {
         return springDataAuthUserRepository.findByExternalUserIdAndTenant_Id(externalUserId, tenantId)
                 .map(AuthUserMapper::toDomain);
     }
+
+    @Override
+    public Optional<AuthUser> findByIdAndTenantId(UUID userId, UUID tenantId) {
+        return springDataAuthUserRepository.findByIdAndTenant_Id(userId, tenantId)
+                .map(AuthUserMapper::toDomain);
+    }
 }

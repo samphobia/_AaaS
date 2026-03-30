@@ -7,4 +7,6 @@ import java.util.Optional;
 public interface TenantRepository {
 
     Optional<Tenant> findByApiKey(String apiKey);
+
+    Tenant save(Tenant tenant);
 }

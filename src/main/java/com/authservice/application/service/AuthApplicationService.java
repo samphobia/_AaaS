@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.Instant;
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -34,6 +35,7 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
     private final TenantRepository tenantRepository;
     private final IdentityProviderClient identityProviderClient;
     private final AuditLogService auditLogService;
+    private final CustomAttributeApplicationService customAttributeApplicationService;
 
     @Override
     @Transactional
@@ -60,8 +62,13 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
 
         log.info("Registered user mapping externalUserId={} tenantId={}", command.getExternalUserId(), tenant.getId());
         AuthUser saved = authUserRepository.save(user);
+        customAttributeApplicationService.assignUserAttributesForSignup(saved.getId(), defaultAttributes(command.getAttributes()));
         auditLogService.logEvent("REGISTER", "SUCCESS", tenant.getId(), keycloakUserId, "externalUserId=" + command.getExternalUserId());
         return saved;
+    }
+
+    private Map<String, Object> defaultAttributes(Map<String, Object> attributes) {
+        return attributes == null ? Map.of() : attributes;
     }
 
     @Override

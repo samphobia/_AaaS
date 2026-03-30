@@ -12,4 +12,6 @@ public interface AuthUserRepository {
     Optional<AuthUser> findByKeycloakUserIdAndTenantId(String keycloakUserId, UUID tenantId);
 
     Optional<AuthUser> findByExternalUserIdAndTenantId(String externalUserId, UUID tenantId);
+
+    Optional<AuthUser> findByIdAndTenantId(UUID userId, UUID tenantId);
 }

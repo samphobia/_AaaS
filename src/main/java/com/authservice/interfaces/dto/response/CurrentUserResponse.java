@@ -4,6 +4,7 @@ import com.authservice.domain.model.Role;
 import lombok.Builder;
 import lombok.Value;
 
+import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
@@ -13,4 +14,5 @@ public class CurrentUserResponse {
     String externalUserId;
     UUID tenantId;
     Set<Role> roles;
+    Map<String, Object> attributes;
 }

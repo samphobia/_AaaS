@@ -32,9 +32,7 @@
       "serviceAccountsEnabled": true,
       "directAccessGrantsEnabled": true,
       "standardFlowEnabled": true,
-      "optionalClientScopes": [
-        "service.read"
-      ],
+      "optionalClientScopes": ["service.read"],
       "secret": "auth-client-secret"
     }
   ]

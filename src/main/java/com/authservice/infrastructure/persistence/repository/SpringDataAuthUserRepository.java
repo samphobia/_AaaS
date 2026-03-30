@@ -11,4 +11,6 @@ public interface SpringDataAuthUserRepository extends JpaRepository<AuthUserEnti
     Optional<AuthUserEntity> findByKeycloakUserIdAndTenant_Id(String keycloakUserId, UUID tenantId);
 
     Optional<AuthUserEntity> findByExternalUserIdAndTenant_Id(String externalUserId, UUID tenantId);
+
+    Optional<AuthUserEntity> findByIdAndTenant_Id(UUID id, UUID tenantId);
 }

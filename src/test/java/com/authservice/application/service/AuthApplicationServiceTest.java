@@ -24,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -38,8 +39,11 @@ class AuthApplicationServiceTest {
     @Mock
     private IdentityProviderClient identityProviderClient;
 
-        @Mock
-        private AuditLogService auditLogService;
+    @Mock
+    private AuditLogService auditLogService;
+
+    @Mock
+    private CustomAttributeApplicationService customAttributeApplicationService;
 
     @InjectMocks
     private AuthApplicationService authApplicationService;
@@ -66,11 +70,13 @@ class AuthApplicationServiceTest {
                 .password("StrongPass123")
                 .externalUserId("ext-1")
                 .apiKey("api-key")
+            .attributes(java.util.Map.of("name", "John"))
                 .build());
 
         assertThat(result.getKeycloakUserId()).isEqualTo("kc-123");
         assertThat(result.getTenantId()).isEqualTo(tenantId);
         assertThat(result.getRoles()).isEqualTo(Set.of(com.authservice.domain.model.Role.USER));
+        verify(customAttributeApplicationService).assignUserAttributesForSignup(result.getId(), java.util.Map.of("name", "John"));
     }
 
     @Test
