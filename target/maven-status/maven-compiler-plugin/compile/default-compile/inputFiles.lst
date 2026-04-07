@@ -70,8 +70,10 @@
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/TenantFilter.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/security/TenantResolver.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/AssignUserAttributesRequest.java
+/Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/ChangePasswordRequest.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateAttributeDefinitionRequest.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/CreateTenantRequest.java
+/Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/ForgotPasswordRequest.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/LoginRequest.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/RefreshTokenRequest.java
 /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/interfaces/dto/request/RegisterRequest.java

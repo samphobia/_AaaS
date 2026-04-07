@@ -27,6 +27,8 @@ import java.util.UUID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -40,6 +42,9 @@ class CustomAttributeApplicationServiceTest {
 
     @Mock
     private UserAttributeValueRepository userAttributeValueRepository;
+
+        @Mock
+        private IdentityProviderClient identityProviderClient;
 
     @InjectMocks
     private CustomAttributeApplicationService service;
@@ -165,6 +170,7 @@ class CustomAttributeApplicationServiceTest {
         Map<String, Object> result = service.assignUserAttributesForSignup(userId, Map.of());
 
         assertThat(result).isEmpty();
+                verify(identityProviderClient).syncUserAttributes(eq("kc-user"), eq(Map.of()));
     }
 
     @Test

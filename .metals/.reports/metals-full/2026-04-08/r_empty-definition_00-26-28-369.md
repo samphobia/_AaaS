@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/src/main/java/com/authservice/application/service/AuthApplicationService.java:_empty_/`<any>`#active#
+file://<WORKSPACE>/src/main/java/com/authservice/application/service/AuthApplicationService.java
+empty definition using pc, found symbol in pc: _empty_/`<any>`#active#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2704
+uri: file://<WORKSPACE>/src/main/java/com/authservice/application/service/AuthApplicationService.java
+text:
+```scala
 package com.authservice.application.service;
 
 import com.authservice.application.exception.ConflictException;
@@ -56,7 +67,7 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
                 .externalUserId(command.getExternalUserId())
                 .roles(Set.of(Role.USER))
                 .tenantId(tenant.getId())
-                .active(true)
+                .@@active(true)
                 .createdAt(Instant.now())
                 .build();
 
@@ -129,3 +140,10 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
         return authUser;
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/`<any>`#active#

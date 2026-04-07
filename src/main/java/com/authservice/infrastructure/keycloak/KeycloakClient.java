@@ -5,6 +5,9 @@ import com.authservice.application.service.IdentityProviderClient;
 import com.authservice.application.service.model.TokenPair;
 import com.authservice.application.service.model.TokenValidationResult;
 import com.authservice.config.KeycloakProperties;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import lombok.RequiredArgsConstructor;
@@ -14,19 +17,26 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.util.UriComponentsBuilder;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestClient;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class KeycloakClient implements IdentityProviderClient {
+
+    private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+    private static final String CUSTOM_ATTRIBUTES_KEY = "custom_attributes";
 
     private final RestClient restClient;
     private final KeycloakProperties keycloakProperties;
@@ -64,6 +74,7 @@ public class KeycloakClient implements IdentityProviderClient {
             String userId = path.substring(path.lastIndexOf('/') + 1);
             setUserPassword(adminToken, userId, password);
             finalizeUserSetup(adminToken, userId, email);
+            assignRealmRolesWithAdminToken(adminToken, userId, Set.of("USER"));
             return userId;
         } catch (HttpStatusCodeException ex) {
             log.error("Failed to create user in Keycloak. status={} body={}", ex.getStatusCode(), ex.getResponseBodyAsString());
@@ -171,6 +182,8 @@ public class KeycloakClient implements IdentityProviderClient {
             throw new UnauthorizedException("Token is not active");
         }
 
+        Map<String, Object> jwtClaims = decodeJwtClaims(token);
+
         String subject = (String) response.get("sub");
         String username = (String) response.get("username");
         if ((subject == null || subject.isBlank()) && username != null && !username.isBlank() && !isMachineToken(response)) {
@@ -183,9 +196,84 @@ public class KeycloakClient implements IdentityProviderClient {
                 .username(username)
                 .clientId((String) response.get("client_id"))
                 .machineToken(isMachineToken(response))
-                .roles(extractRoles(response))
-                .scopes(extractScopes(response))
+                .roles(merge(extractRoles(response), extractRoles(jwtClaims)))
+                .scopes(merge(extractScopes(response), extractScopes(jwtClaims)))
                 .build();
+    }
+
+    @Override
+    @Retry(name = "keycloak")
+    @CircuitBreaker(name = "keycloak")
+    public void assignRealmRoles(String userId, Set<String> roles) {
+        assignRealmRolesWithAdminToken(requestAdminToken(), userId, roles);
+    }
+
+    @Override
+    @Retry(name = "keycloak")
+    @CircuitBreaker(name = "keycloak")
+    public void syncUserAttributes(String userId, Map<String, Object> attributes) {
+        String adminToken = requestAdminToken();
+        Map<String, Object> userRepresentation = getUserRepresentation(adminToken, userId);
+
+        Map<String, List<String>> existingAttributes = extractExistingAttributes(userRepresentation);
+        existingAttributes.put(CUSTOM_ATTRIBUTES_KEY, List.of(serializeCustomAttributes(attributes)));
+
+        userRepresentation.put("attributes", existingAttributes);
+        restClient.put()
+                .uri(keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/users/" + userId)
+                .header("Authorization", "Bearer " + adminToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(userRepresentation)
+                .retrieve()
+                .toBodilessEntity();
+    }
+
+    @Override
+    @Retry(name = "keycloak")
+    @CircuitBreaker(name = "keycloak")
+    public void initiatePasswordReset(String email) {
+        String adminToken = requestAdminToken();
+        String userId = findUserIdByEmail(adminToken, email);
+        if (userId == null) {
+            log.info("Password reset requested for non-existing user email={}", email);
+            return;
+        }
+
+        restClient.put()
+                .uri(keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/users/" + userId + "/execute-actions-email")
+                .header("Authorization", "Bearer " + adminToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(List.of("UPDATE_PASSWORD"))
+                .retrieve()
+                .toBodilessEntity();
+    }
+
+    @Override
+    @Retry(name = "keycloak")
+    @CircuitBreaker(name = "keycloak")
+    public void changePassword(String accessToken, String currentPassword, String newPassword) {
+        Map<String, String> payload = Map.of(
+                "currentPassword", currentPassword,
+                "newPassword", newPassword,
+                "confirmation", newPassword
+        );
+
+        try {
+            restClient.post()
+                    .uri(keycloakProperties.getBaseUrl() + "/realms/" + keycloakProperties.getRealm() + "/account/credentials/password")
+                    .header("Authorization", "Bearer " + accessToken)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(payload)
+                    .retrieve()
+                    .toBodilessEntity();
+        } catch (HttpStatusCodeException ex) {
+            if (ex.getStatusCode() == HttpStatus.UNAUTHORIZED || ex.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                log.warn("Password change rejected status={} body={}", ex.getStatusCode(), ex.getResponseBodyAsString());
+                throw new UnauthorizedException("Invalid current password or token");
+            }
+            log.error("Password change failed status={} body={}", ex.getStatusCode(), ex.getResponseBodyAsString());
+            throw new IllegalStateException("Failed to communicate with identity provider");
+        }
     }
 
     private TokenPair requestToken(MultiValueMap<String, String> form) {
@@ -252,6 +340,135 @@ public class KeycloakClient implements IdentityProviderClient {
             throw new IllegalStateException("Failed to obtain admin token");
         }
         return (String) response.get("access_token");
+    }
+
+    private void assignRealmRolesWithAdminToken(String adminToken, String userId, Set<String> roles) {
+        if (roles == null || roles.isEmpty()) {
+            return;
+        }
+
+        List<Map<String, Object>> roleRepresentations = new ArrayList<>();
+        for (String roleName : roles) {
+            if (roleName == null || roleName.isBlank()) {
+                continue;
+            }
+            Map<String, Object> roleRepresentation = restClient.get()
+                    .uri(keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/roles/" + roleName)
+                    .header("Authorization", "Bearer " + adminToken)
+                    .retrieve()
+                    .body(Map.class);
+            if (roleRepresentation != null) {
+                roleRepresentations.add(roleRepresentation);
+            }
+        }
+
+        if (roleRepresentations.isEmpty()) {
+            return;
+        }
+
+        restClient.post()
+                .uri(keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/users/" + userId + "/role-mappings/realm")
+                .header("Authorization", "Bearer " + adminToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(roleRepresentations)
+                .retrieve()
+                .toBodilessEntity();
+    }
+
+    @SuppressWarnings("unchecked")
+    private String findUserIdByEmail(String adminToken, String email) {
+        String uri = UriComponentsBuilder
+                .fromHttpUrl(keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/users")
+                .queryParam("email", email)
+                .queryParam("exact", true)
+                .build()
+                .toUriString();
+
+        List<Map<String, Object>> users = restClient.get()
+                .uri(uri)
+                .header("Authorization", "Bearer " + adminToken)
+                .retrieve()
+                .body(List.class);
+
+        if (users == null || users.isEmpty()) {
+            return null;
+        }
+
+        Object id = users.get(0).get("id");
+        if (!(id instanceof String userId) || userId.isBlank()) {
+            return null;
+        }
+        return userId;
+    }
+
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> getUserRepresentation(String adminToken, String userId) {
+        Map<String, Object> response = restClient.get()
+                .uri(keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/users/" + userId)
+                .header("Authorization", "Bearer " + adminToken)
+                .retrieve()
+                .body(Map.class);
+        if (response == null) {
+            throw new IllegalStateException("Failed to load user from identity provider");
+        }
+        return response;
+    }
+
+    @SuppressWarnings("unchecked")
+    private Map<String, List<String>> extractExistingAttributes(Map<String, Object> userRepresentation) {
+        Object attributes = userRepresentation.get("attributes");
+        if (!(attributes instanceof Map<?, ?> raw)) {
+            return new java.util.HashMap<>();
+        }
+
+        Map<String, List<String>> normalized = new java.util.HashMap<>();
+        raw.forEach((key, value) -> {
+            if (key == null) {
+                return;
+            }
+            String normalizedKey = String.valueOf(key);
+            if (value instanceof List<?> list) {
+                normalized.put(normalizedKey, list.stream().filter(Objects::nonNull).map(String::valueOf).toList());
+            } else if (value != null) {
+                normalized.put(normalizedKey, List.of(String.valueOf(value)));
+            }
+        });
+        return normalized;
+    }
+
+    private String serializeCustomAttributes(Map<String, Object> attributes) {
+        Map<String, Object> safeAttributes = attributes == null ? Map.of() : attributes;
+        try {
+            return OBJECT_MAPPER.writeValueAsString(safeAttributes);
+        } catch (JsonProcessingException ex) {
+            throw new IllegalStateException("Failed to serialize custom attributes", ex);
+        }
+    }
+
+    private Map<String, Object> decodeJwtClaims(String token) {
+        try {
+            String[] parts = token.split("\\.");
+            if (parts.length < 2) {
+                return Map.of();
+            }
+            byte[] payload = Base64.getUrlDecoder().decode(parts[1]);
+            return OBJECT_MAPPER.readValue(payload, new TypeReference<>() {
+            });
+        } catch (Exception ex) {
+            return Map.of();
+        }
+    }
+
+    private Set<String> merge(Set<String> first, Set<String> second) {
+        if (first.isEmpty()) {
+            return second;
+        }
+        if (second.isEmpty()) {
+            return first;
+        }
+        Set<String> merged = new HashSet<>(first);
+        merged.addAll(second);
+        return Set.copyOf(merged);
     }
 
     @SuppressWarnings("unchecked")

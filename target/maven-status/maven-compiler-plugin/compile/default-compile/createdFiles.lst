@@ -20,12 +20,15 @@ com/authservice/application/usecase/command/RefreshTokenCommand.class
 com/authservice/domain/model/AuthUser$AuthUserBuilder.class
 com/authservice/interfaces/rest/AuthController.class
 com/authservice/infrastructure/keycloak/KeycloakClient.class
+com/authservice/interfaces/dto/request/ChangePasswordRequest.class
 com/authservice/application/usecase/RefreshTokenUseCase.class
 com/authservice/application/service/model/TokenPair.class
 com/authservice/config/SecurityConfig.class
 com/authservice/domain/model/AuthMetadata$AuthMetadataBuilder.class
 com/authservice/application/usecase/RegisterUserUseCase.class
+com/authservice/interfaces/dto/request/ForgotPasswordRequest.class
 com/authservice/domain/model/Tenant$TenantBuilder.class
+com/authservice/infrastructure/keycloak/KeycloakClient$1.class
 com/authservice/application/service/AuthApplicationService.class
 com/authservice/application/usecase/command/RegisterUserCommand.class
 com/authservice/domain/repository/AuthUserRepository.class

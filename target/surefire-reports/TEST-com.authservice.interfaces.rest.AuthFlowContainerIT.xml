@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.authservice.interfaces.rest.AuthFlowContainerIT" time="51.286" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.authservice.interfaces.rest.AuthFlowContainerIT" time="45.344" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="GB"/>
     <property name="sun.boot.library.path" value="/usr/local/Cellar/openjdk@21/21.0.9/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/lateblackhole/Documents/KeyAuth/target/surefire/surefirebooter-20260322173455313_3.jar /Users/lateblackhole/Documents/KeyAuth/target/surefire 2026-03-22T17-34-55_229-jvmRun1 surefire-20260322173455313_1tmp surefire_0-20260322173455313_2tmp"/>
+    <property name="sun.java.command" value="/Users/lateblackhole/Documents/KeyAuth/target/surefire/surefirebooter-20260408003828432_3.jar /Users/lateblackhole/Documents/KeyAuth/target/surefire 2026-04-08T00-38-28_337-jvmRun1 surefire-20260408003828432_1tmp surefire_0-20260408003828432_2tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="AuthFlowContainerIT"/>
@@ -35,7 +35,7 @@
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/lateblackhole/Documents/KeyAuth/target/surefire/surefirebooter-20260322173455313_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/lateblackhole/Documents/KeyAuth/target/surefire/surefirebooter-20260408003828432_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="21.0.9"/>
@@ -50,15 +50,15 @@
     <property name="localRepository" value="/Users/lateblackhole/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
     <property name="java.io.tmpdir" value="/var/folders/54/znbk4vcd6ys379cbnf8qygdc0000gn/T/"/>
-    <property name="catalina.home" value="/private/var/folders/54/znbk4vcd6ys379cbnf8qygdc0000gn/T/tomcat.0.2282565797219526564"/>
+    <property name="catalina.home" value="/private/var/folders/54/znbk4vcd6ys379cbnf8qygdc0000gn/T/tomcat.0.5793134911894144502"/>
     <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="21.0.9"/>
     <property name="user.dir" value="/Users/lateblackhole/Documents/KeyAuth"/>
     <property name="os.arch" value="x86_64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="26011"/>
+    <property name="PID" value="8885"/>
     <property name="CONSOLE_LOG_CHARSET" value="UTF-8"/>
-    <property name="catalina.base" value="/private/var/folders/54/znbk4vcd6ys379cbnf8qygdc0000gn/T/tomcat.0.2282565797219526564"/>
+    <property name="catalina.base" value="/private/var/folders/54/znbk4vcd6ys379cbnf8qygdc0000gn/T/tomcat.0.5793134911894144502"/>
     <property name="native.encoding" value="UTF-8"/>
     <property name="java.library.path" value="/Users/lateblackhole/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
@@ -70,35 +70,35 @@
     <property name="java.class.version" value="65.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[auth-service] "/>
   </properties>
-  <testcase name="fullAuthFlow_ShouldRegisterLoginRefreshAndResolveCurrentUser" classname="com.authservice.interfaces.rest.AuthFlowContainerIT" time="3.597">
-    <system-out><![CDATA[17:34:56.292 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
-17:34:56.298 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
-17:34:56.343 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.1
-17:34:56.601 [testcontainers-lifecycle-0] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
-17:34:56.972 [testcontainers-lifecycle-0] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
-17:34:56.973 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
-17:34:56.999 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
+  <testcase name="passwordEndpoints_ShouldSupportForgotPasswordAndChangePasswordValidation" classname="com.authservice.interfaces.rest.AuthFlowContainerIT" time="3.966">
+    <system-out><![CDATA[00:38:29.447 [main] INFO org.testcontainers.images.PullPolicy -- Image pull policy will be performed by: DefaultPullPolicy()
+00:38:29.452 [main] INFO org.testcontainers.utility.ImageNameSubstitutor -- Image name substitution will be performed by: DefaultImageNameSubstitutor (composite of 'ConfigurationFileImageNameSubstitutor' and 'PrefixingImageNameSubstitutor')
+00:38:29.496 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Testcontainers version: 1.20.1
+00:38:29.744 [testcontainers-lifecycle-0] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Loaded org.testcontainers.dockerclient.UnixSocketClientProviderStrategy from ~/.testcontainers.properties, will try it first
+00:38:30.089 [testcontainers-lifecycle-0] INFO org.testcontainers.dockerclient.DockerClientProviderStrategy -- Found Docker environment with local Unix socket (unix:///var/run/docker.sock)
+00:38:30.091 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Docker host IP address is localhost
+00:38:30.119 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Connected to docker: 
   Server Version: 24.0.5
   API Version: 1.43
   Operating System: Docker Desktop
   Total Memory: 7859 MB
-17:34:57.042 [testcontainers-lifecycle-0] INFO tc.testcontainers/ryuk:0.8.1 -- Creating container for image: testcontainers/ryuk:0.8.1
-17:34:57.594 [testcontainers-lifecycle-0] INFO tc.testcontainers/ryuk:0.8.1 -- Container testcontainers/ryuk:0.8.1 is starting: 36a21525c22990db6dcf9b1e73411c5845b907668c228f1ed4a3d4a63eebbb2d
-17:34:58.060 [testcontainers-lifecycle-0] INFO tc.testcontainers/ryuk:0.8.1 -- Container testcontainers/ryuk:0.8.1 started in PT1.018129S
-17:34:58.073 [testcontainers-lifecycle-0] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
-17:34:58.074 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Checking the system...
-17:34:58.074 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
-17:34:58.075 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Creating container for image: postgres:16
-17:34:58.075 [testcontainers-lifecycle-1] INFO tc.quay.io/keycloak/keycloak:26.0 -- Creating container for image: quay.io/keycloak/keycloak:26.0
-17:34:58.123 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Container postgres:16 is starting: d7b7e94a615c9c4b89d3c294e595ea32cda342722e3209a1b0c1b3febda543e8
-17:34:59.087 [testcontainers-lifecycle-1] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for quay.io
-17:34:59.197 [testcontainers-lifecycle-1] INFO tc.quay.io/keycloak/keycloak:26.0 -- Container quay.io/keycloak/keycloak:26.0 is starting: 584ba6749f326ecb34eb6597f0faae8e754462e7863ef19a1fb5b8b176436980
-17:35:00.449 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Container postgres:16 started in PT2.373893S
-17:35:00.450 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Container is started (JDBC URL: jdbc:postgresql://localhost:56516/authdb?loggerLevel=OFF)
-17:35:32.399 [testcontainers-lifecycle-1] INFO tc.quay.io/keycloak/keycloak:26.0 -- Container quay.io/keycloak/keycloak:26.0 started in PT34.324249S
+00:38:30.162 [testcontainers-lifecycle-0] INFO tc.testcontainers/ryuk:0.8.1 -- Creating container for image: testcontainers/ryuk:0.8.1
+00:38:30.750 [testcontainers-lifecycle-0] INFO tc.testcontainers/ryuk:0.8.1 -- Container testcontainers/ryuk:0.8.1 is starting: 230d29b1356145abdddb6a2f7184a96d93363c5089d939f22bc4fae9657324d5
+00:38:31.253 [testcontainers-lifecycle-0] INFO tc.testcontainers/ryuk:0.8.1 -- Container testcontainers/ryuk:0.8.1 started in PT1.090515S
+00:38:31.262 [testcontainers-lifecycle-0] INFO org.testcontainers.utility.RyukResourceReaper -- Ryuk started - will monitor and terminate Testcontainers containers on JVM exit
+00:38:31.263 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- Checking the system...
+00:38:31.263 [testcontainers-lifecycle-0] INFO org.testcontainers.DockerClientFactory -- ✔︎ Docker server version should be at least 1.6.0
+00:38:31.264 [testcontainers-lifecycle-1] INFO tc.quay.io/keycloak/keycloak:26.0 -- Creating container for image: quay.io/keycloak/keycloak:26.0
+00:38:31.264 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Creating container for image: postgres:16
+00:38:31.305 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Container postgres:16 is starting: b2a0672267e9d18f1c0e7f50b307623af918b2cb7c44ac48b965220984363901
+00:38:32.231 [testcontainers-lifecycle-1] INFO org.testcontainers.utility.RegistryAuthLocator -- Credential helper/store (docker-credential-desktop) does not have credentials for quay.io
+00:38:32.383 [testcontainers-lifecycle-1] INFO tc.quay.io/keycloak/keycloak:26.0 -- Container quay.io/keycloak/keycloak:26.0 is starting: b2bad7b871f764f8494737e91e9fe546a926e4043e63d44b4275eb9e2b5c9f9f
+00:38:33.730 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Container postgres:16 started in PT2.466736S
+00:38:33.731 [testcontainers-lifecycle-0] INFO tc.postgres:16 -- Container is started (JDBC URL: jdbc:postgresql://localhost:53086/authdb?loggerLevel=OFF)
+00:38:59.878 [testcontainers-lifecycle-1] INFO tc.quay.io/keycloak/keycloak:26.0 -- Container quay.io/keycloak/keycloak:26.0 started in PT28.613861S
 Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
-17:35:32.534 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.authservice.interfaces.rest.AuthFlowContainerIT]: AuthFlowContainerIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-17:35:32.744 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.authservice.AuthServiceApplication for test class com.authservice.interfaces.rest.AuthFlowContainerIT
+00:38:59.972 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.authservice.interfaces.rest.AuthFlowContainerIT]: AuthFlowContainerIT does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:39:00.150 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.authservice.AuthServiceApplication for test class com.authservice.interfaces.rest.AuthFlowContainerIT
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -109,59 +109,76 @@ Standard Commons Logging discovery in action with spring-jcl: please remove comm
 
  :: Spring Boot ::                (v3.3.5)
 
-2026-03-22T17:35:33.324+01:00  INFO 26011 --- [auth-service] [           main] c.a.interfaces.rest.AuthFlowContainerIT  : Starting AuthFlowContainerIT using Java 21.0.9 with PID 26011 (started by lateblackhole in /Users/lateblackhole/Documents/KeyAuth)
-2026-03-22T17:35:33.326+01:00  INFO 26011 --- [auth-service] [           main] c.a.interfaces.rest.AuthFlowContainerIT  : No active profile set, falling back to 1 default profile: "default"
-2026-03-22T17:35:34.690+01:00  INFO 26011 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2026-03-22T17:35:34.760+01:00  INFO 26011 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 61 ms. Found 4 JPA repository interfaces.
-2026-03-22T17:35:35.121+01:00  INFO 26011 --- [auth-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=7a51ca3e-02a3-31a5-886a-089326e92888
-2026-03-22T17:35:36.014+01:00  INFO 26011 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
-2026-03-22T17:35:36.033+01:00  INFO 26011 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2026-03-22T17:35:36.034+01:00  INFO 26011 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
-2026-03-22T17:35:36.104+01:00  INFO 26011 --- [auth-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2026-03-22T17:35:36.105+01:00  INFO 26011 --- [auth-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2753 ms
+2026-04-08T00:39:00.690+01:00  INFO 8885 --- [auth-service] [           main] c.a.interfaces.rest.AuthFlowContainerIT  : Starting AuthFlowContainerIT using Java 21.0.9 with PID 8885 (started by lateblackhole in /Users/lateblackhole/Documents/KeyAuth)
+2026-04-08T00:39:00.693+01:00  INFO 8885 --- [auth-service] [           main] c.a.interfaces.rest.AuthFlowContainerIT  : No active profile set, falling back to 1 default profile: "default"
+2026-04-08T00:39:01.836+01:00  INFO 8885 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-04-08T00:39:01.906+01:00  INFO 8885 --- [auth-service] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 6 JPA repository interfaces.
+2026-04-08T00:39:02.232+01:00  INFO 8885 --- [auth-service] [           main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=702d3cdd-3c6d-3e6f-b161-b64fdfa55ac1
+2026-04-08T00:39:03.083+01:00  INFO 8885 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 0 (http)
+2026-04-08T00:39:03.098+01:00  INFO 8885 --- [auth-service] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-04-08T00:39:03.099+01:00  INFO 8885 --- [auth-service] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2026-04-08T00:39:03.159+01:00  INFO 8885 --- [auth-service] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-04-08T00:39:03.161+01:00  INFO 8885 --- [auth-service] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2448 ms
 Standard Commons Logging discovery in action with spring-jcl: please remove commons-logging.jar from classpath in order to avoid potential conflicts
-2026-03-22T17:35:37.132+01:00  INFO 26011 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2026-03-22T17:35:37.320+01:00  INFO 26011 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@6d57b264
-2026-03-22T17:35:37.322+01:00  INFO 26011 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2026-03-22T17:35:37.360+01:00  INFO 26011 --- [auth-service] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:56516/authdb (PostgreSQL 16.13)
-2026-03-22T17:35:37.409+01:00  INFO 26011 --- [auth-service] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
-2026-03-22T17:35:37.413+01:00  INFO 26011 --- [auth-service] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 3 migrations (execution time 00:00.024s)
-2026-03-22T17:35:37.437+01:00  INFO 26011 --- [auth-service] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
-2026-03-22T17:35:37.504+01:00  INFO 26011 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
-2026-03-22T17:35:37.518+01:00  INFO 26011 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - init"
-2026-03-22T17:35:37.573+01:00  INFO 26011 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - seed default tenant"
-2026-03-22T17:35:37.608+01:00  INFO 26011 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - create audit logs"
-2026-03-22T17:35:37.645+01:00  INFO 26011 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 3 migrations to schema "public", now at version v3 (execution time 00:00.051s)
-2026-03-22T17:35:37.814+01:00  INFO 26011 --- [auth-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2026-03-22T17:35:37.894+01:00  INFO 26011 --- [auth-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
-2026-03-22T17:35:37.942+01:00  INFO 26011 --- [auth-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2026-03-22T17:35:38.330+01:00  INFO 26011 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2026-03-22T17:35:39.639+01:00  INFO 26011 --- [auth-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2026-03-22T17:35:39.679+01:00  INFO 26011 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2026-03-22T17:35:40.696+01:00  WARN 26011 --- [auth-service] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+2026-04-08T00:39:04.060+01:00  INFO 8885 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-04-08T00:39:04.230+01:00  INFO 8885 --- [auth-service] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@71c74011
+2026-04-08T00:39:04.231+01:00  INFO 8885 --- [auth-service] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-04-08T00:39:04.264+01:00  INFO 8885 --- [auth-service] [           main] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:53086/authdb (PostgreSQL 16.13)
+2026-04-08T00:39:04.307+01:00  INFO 8885 --- [auth-service] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Schema history table "public"."flyway_schema_history" does not exist yet
+2026-04-08T00:39:04.311+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.019s)
+2026-04-08T00:39:04.335+01:00  INFO 8885 --- [auth-service] [           main] o.f.c.i.s.JdbcTableSchemaHistory         : Creating Schema History table "public"."flyway_schema_history" ...
+2026-04-08T00:39:04.415+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2026-04-08T00:39:04.426+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "1 - init"
+2026-04-08T00:39:04.476+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "2 - seed default tenant"
+2026-04-08T00:39:04.509+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "3 - create audit logs"
+2026-04-08T00:39:04.541+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Migrating schema "public" to version "4 - custom user attributes"
+2026-04-08T00:39:04.583+01:00  INFO 8885 --- [auth-service] [           main] o.f.core.internal.command.DbMigrate      : Successfully applied 4 migrations to schema "public", now at version v4 (execution time 00:00.068s)
+2026-04-08T00:39:04.765+01:00  INFO 8885 --- [auth-service] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-04-08T00:39:04.829+01:00  INFO 8885 --- [auth-service] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+2026-04-08T00:39:04.870+01:00  INFO 8885 --- [auth-service] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-04-08T00:39:05.152+01:00  INFO 8885 --- [auth-service] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-04-08T00:39:06.148+01:00  INFO 8885 --- [auth-service] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-04-08T00:39:06.186+01:00  INFO 8885 --- [auth-service] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-04-08T00:39:07.182+01:00  WARN 8885 --- [auth-service] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: a01e5a49-8881-4523-9e5e-985d634d870e
+Using generated security password: b99020b1-1ec7-4edf-a691-0d4650a8017b
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2026-03-22T17:35:40.718+01:00  INFO 26011 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2026-03-22T17:35:41.547+01:00  INFO 26011 --- [auth-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
-2026-03-22T17:35:43.092+01:00  INFO 26011 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 56532 (http) with context path '/'
-2026-03-22T17:35:43.117+01:00  INFO 26011 --- [auth-service] [           main] c.a.interfaces.rest.AuthFlowContainerIT  : Started AuthFlowContainerIT in 10.231 seconds (process running for 47.707)
-2026-03-22T17:35:43.999+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2026-03-22T17:35:43.999+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2026-03-22T17:35:44.002+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2026-03-22T17:35:46.287+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-1] c.a.a.service.AuthApplicationService     : Registered user mapping externalUserId=ext-2ee34cde-0c38-49f4-b4c9-e39e9a4c1a79 tenantId=11111111-1111-1111-1111-111111111111
-2026-03-22T17:35:46.319+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-1] c.a.application.service.AuditLogService  : audit event=REGISTER outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=bdd28c9a-6ba3-4f94-8544-48a92b0cecd8
-2026-03-22T17:35:46.572+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-2] c.a.application.service.AuditLogService  : audit event=LOGIN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=it-7e5317b2-0258-4e11-a271-3ee754e7d44b@mail.com
-2026-03-22T17:35:46.648+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-3] c.a.application.service.AuditLogService  : audit event=ME outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=bdd28c9a-6ba3-4f94-8544-48a92b0cecd8
-2026-03-22T17:35:46.702+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-4] c.a.application.service.AuditLogService  : audit event=REFRESH outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=anonymous
-2026-03-22T17:35:46.755+01:00  INFO 26011 --- [auth-service] [o-auto-1-exec-5] c.a.application.service.AuditLogService  : audit event=SERVICE_TOKEN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=auth-client
+2026-04-08T00:39:07.198+01:00  INFO 8885 --- [auth-service] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-04-08T00:39:07.828+01:00  INFO 8885 --- [auth-service] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 3 endpoints beneath base path '/actuator'
+2026-04-08T00:39:09.158+01:00  INFO 8885 --- [auth-service] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 53111 (http) with context path '/'
+2026-04-08T00:39:09.180+01:00  INFO 8885 --- [auth-service] [           main] c.a.interfaces.rest.AuthFlowContainerIT  : Started AuthFlowContainerIT in 8.912 seconds (process running for 40.641)
+2026-04-08T00:39:09.891+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-04-08T00:39:09.891+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-04-08T00:39:09.893+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-04-08T00:39:11.217+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-1] c.a.application.service.AuditLogService  : audit event=SERVICE_TOKEN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=auth-client
+2026-04-08T00:39:11.428+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-3] c.a.application.service.AuditLogService  : audit event=SERVICE_TOKEN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=auth-client
+2026-04-08T00:39:12.075+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-5] c.a.a.service.AuthApplicationService     : Registered user mapping externalUserId=ext-08fd89ca-17cc-4f6f-bd70-49fa74584046 tenantId=11111111-1111-1111-1111-111111111111
+2026-04-08T00:39:12.229+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-5] c.a.application.service.AuditLogService  : audit event=REGISTER outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=012be976-891a-4cec-8c48-05f2bdf15b56
+2026-04-08T00:39:12.368+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-6] c.a.i.keycloak.KeycloakClient            : Password reset requested for non-existing user email=missing-9c7f5183-f1bb-489e-b855-5c23e1468a75@mail.com
+2026-04-08T00:39:12.373+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-6] c.a.application.service.AuditLogService  : audit event=FORGOT_PASSWORD outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=missing-9c7f5183-f1bb-489e-b855-5c23e1468a75@mail.com
+2026-04-08T00:39:12.497+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-7] c.a.application.service.AuditLogService  : audit event=LOGIN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=pwd-32e3f7f6-79a7-4e06-b350-24f97cff90e8@mail.com
+2026-04-08T00:39:12.543+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-8] c.a.application.service.AuditLogService  : audit event=ME outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=012be976-891a-4cec-8c48-05f2bdf15b56
+2026-04-08T00:39:12.574+01:00  WARN 8885 --- [auth-service] [o-auto-1-exec-8] c.a.i.keycloak.KeycloakClient            : Password change rejected status=401 UNAUTHORIZED body={"error":"HTTP 401 Unauthorized"}
+2026-04-08T00:39:12.896+01:00  WARN 8885 --- [auth-service] [o-auto-1-exec-8] c.a.i.keycloak.KeycloakClient            : Password change rejected status=401 UNAUTHORIZED body={"error":"HTTP 401 Unauthorized"}
+2026-04-08T00:39:13.212+01:00  WARN 8885 --- [auth-service] [o-auto-1-exec-8] c.a.i.keycloak.KeycloakClient            : Password change rejected status=401 UNAUTHORIZED body={"error":"HTTP 401 Unauthorized"}
 ]]></system-out>
     <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/lateblackhole/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.19/byte-buddy-agent-1.14.19.jar)
 WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
 WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
 WARNING: Dynamic loading of agents will be disallowed by default in a future release
 ]]></system-err>
+  </testcase>
+  <testcase name="fullAuthFlow_ShouldRegisterLoginRefreshAndResolveCurrentUser" classname="com.authservice.interfaces.rest.AuthFlowContainerIT" time="0.726">
+    <system-out><![CDATA[2026-04-08T00:39:13.273+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-9] c.a.application.service.AuditLogService  : audit event=SERVICE_TOKEN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=auth-client
+2026-04-08T00:39:13.334+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-1] c.a.application.service.AuditLogService  : audit event=SERVICE_TOKEN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=auth-client
+2026-04-08T00:39:13.591+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-3] c.a.a.service.AuthApplicationService     : Registered user mapping externalUserId=ext-42860449-cb53-4b0b-9b41-729151a5bfaf tenantId=11111111-1111-1111-1111-111111111111
+2026-04-08T00:39:13.703+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-3] c.a.application.service.AuditLogService  : audit event=REGISTER outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=bce597e7-9024-45b6-8a12-7bad4950127f
+2026-04-08T00:39:13.790+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-4] c.a.application.service.AuditLogService  : audit event=LOGIN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=it-acd5adb4-1629-41d4-ab0a-7f4cf0a01663@mail.com
+2026-04-08T00:39:13.832+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-5] c.a.application.service.AuditLogService  : audit event=ME outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=bce597e7-9024-45b6-8a12-7bad4950127f
+2026-04-08T00:39:13.894+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-6] c.a.application.service.AuditLogService  : audit event=REFRESH outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=anonymous
+2026-04-08T00:39:13.927+01:00  INFO 8885 --- [auth-service] [o-auto-1-exec-7] c.a.application.service.AuditLogService  : audit event=SERVICE_TOKEN outcome=SUCCESS tenant=11111111-1111-1111-1111-111111111111 principal=auth-client
+]]></system-out>
   </testcase>
 </testsuite>

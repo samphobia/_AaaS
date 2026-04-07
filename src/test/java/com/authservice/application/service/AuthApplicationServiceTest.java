@@ -134,4 +134,31 @@ class AuthApplicationServiceTest {
         assertThat(tokenPair.getAccessToken()).isEqualTo("service-token");
         assertThat(tokenPair.getExpiresIn()).isEqualTo(300);
     }
+
+    @Test
+    void forgotPassword_ShouldDelegateToIdentityProvider() {
+        UUID tenantId = UUID.randomUUID();
+        TenantContextHolder.setTenantId(tenantId);
+
+        authApplicationService.forgotPassword("user@mail.com");
+
+        verify(identityProviderClient).initiatePasswordReset("user@mail.com");
+    }
+
+    @Test
+    void changePassword_ShouldValidateCurrentUserAndDelegate() {
+        UUID tenantId = UUID.randomUUID();
+        TenantContextHolder.setTenantId(tenantId);
+        when(authUserRepository.findByKeycloakUserIdAndTenantId("kc-1", tenantId)).thenReturn(Optional.of(AuthUser.builder()
+                .id(UUID.randomUUID())
+                .tenantId(tenantId)
+                .keycloakUserId("kc-1")
+                .externalUserId("ext-1")
+                .active(true)
+                .build()));
+
+        authApplicationService.changePassword("kc-1", "access-token", "OldPass123!", "NewPass123!");
+
+        verify(identityProviderClient).changePassword("access-token", "OldPass123!", "NewPass123!");
+    }
 }

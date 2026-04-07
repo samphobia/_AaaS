@@ -31,6 +31,7 @@ public class CustomAttributeApplicationService {
     private final AuthUserRepository authUserRepository;
     private final CustomAttributeDefinitionRepository customAttributeDefinitionRepository;
     private final UserAttributeValueRepository userAttributeValueRepository;
+    private final IdentityProviderClient identityProviderClient;
 
     @Transactional
     public CustomAttributeDefinition createDefinition(String name, AttributeType type, boolean required) {
@@ -112,7 +113,9 @@ public class CustomAttributeApplicationService {
 
         Map<UUID, CustomAttributeDefinition> definitionsById = definitionsByName.values().stream()
             .collect(Collectors.toMap(CustomAttributeDefinition::getId, definition -> definition));
-        return buildTypedAttributeMap(mergedValues, definitionsById);
+        Map<String, Object> typedAttributes = buildTypedAttributeMap(mergedValues, definitionsById);
+        identityProviderClient.syncUserAttributes(user.getKeycloakUserId(), typedAttributes);
+        return typedAttributes;
     }
 
     @Transactional(readOnly = true)

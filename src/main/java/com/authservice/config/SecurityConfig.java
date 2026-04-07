@@ -25,7 +25,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/actuator/health").permitAll()
                     .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                    .requestMatchers("/auth/login", "/auth/register", "/auth/refresh", "/auth/service-token").permitAll()
+                    .requestMatchers("/auth/login", "/auth/register", "/auth/refresh", "/auth/service-token", "/auth/forgot-password").permitAll()
                     .requestMatchers("/auth/service/me").hasAuthority("SCOPE_service.read")
                         .requestMatchers("/auth/me").authenticated()
                         .anyRequest().authenticated()

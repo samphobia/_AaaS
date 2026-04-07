@@ -6,7 +6,10 @@ import com.authservice.application.exception.UnauthorizedException;
 import com.authservice.application.usecase.command.LoginCommand;
 import com.authservice.application.usecase.command.RefreshTokenCommand;
 import com.authservice.application.usecase.command.RegisterUserCommand;
+import com.authservice.domain.model.Role;
 import com.authservice.infrastructure.security.TenantResolver;
+import com.authservice.interfaces.dto.request.ChangePasswordRequest;
+import com.authservice.interfaces.dto.request.ForgotPasswordRequest;
 import com.authservice.interfaces.dto.request.LoginRequest;
 import com.authservice.interfaces.dto.request.RefreshTokenRequest;
 import com.authservice.interfaces.dto.request.RegisterRequest;
@@ -35,10 +38,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
+import java.util.Locale;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/auth")
@@ -128,6 +134,34 @@ public class AuthController {
                 .build();
     }
 
+        @PostMapping("/forgot-password")
+        @ResponseStatus(HttpStatus.ACCEPTED)
+        @Operation(summary = "Forgot password", description = "Triggers identity provider password reset flow for the provided email")
+        @ApiResponses({
+                        @ApiResponse(responseCode = "202", description = "Reset flow requested"),
+                        @ApiResponse(responseCode = "400", description = "Invalid payload")
+        })
+        public void forgotPassword(@Valid @RequestBody ForgotPasswordRequest request) {
+                authApplicationService.forgotPassword(request.getEmail());
+        }
+
+        @PostMapping("/change-password")
+        @ResponseStatus(HttpStatus.NO_CONTENT)
+        @SecurityRequirement(name = "bearerAuth")
+        @SecurityRequirement(name = "apiKeyAuth")
+        @Operation(summary = "Change password", description = "Changes current authenticated user password")
+        @ApiResponses({
+                        @ApiResponse(responseCode = "204", description = "Password changed"),
+                        @ApiResponse(responseCode = "401", description = "Invalid bearer token or current password")
+        })
+        public void changePassword(@Valid @RequestBody ChangePasswordRequest request,
+                                                           Principal principal,
+                                                           @RequestHeader(value = "Authorization", required = false) String authorizationHeader) {
+                String principalName = resolvePrincipal(principal);
+                String accessToken = extractBearerToken(authorizationHeader);
+                authApplicationService.changePassword(principalName, accessToken, request.getCurrentPassword(), request.getNewPassword());
+        }
+
     @PostMapping("/service-token")
     @Operation(summary = "Issue service token", description = "Issues machine token using OAuth2 client credentials flow")
     @io.swagger.v3.oas.annotations.parameters.RequestBody(
@@ -175,13 +209,60 @@ public class AuthController {
 
                 var user = authApplicationService.getCurrentUser(principalName);
         var attributes = customAttributeApplicationService.getUserAttributes(user.getId());
+                Set<Role> tokenRoles = resolveRolesFromAuthentication();
         return CurrentUserResponse.builder()
                 .externalUserId(user.getExternalUserId())
                 .tenantId(user.getTenantId())
-                .roles(user.getRoles())
+                                .roles(tokenRoles.isEmpty() ? user.getRoles() : tokenRoles)
                 .attributes(attributes)
                 .build();
     }
+
+        private Set<Role> resolveRolesFromAuthentication() {
+                Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+                if (authentication == null) {
+                        return Set.of();
+                }
+
+                return authentication.getAuthorities().stream()
+                                .map(grantedAuthority -> grantedAuthority.getAuthority())
+                                .filter(authority -> authority.startsWith("ROLE_"))
+                                .map(authority -> authority.substring("ROLE_".length()))
+                                .map(roleName -> {
+                                        try {
+                                                return Role.valueOf(roleName);
+                                        } catch (IllegalArgumentException ex) {
+                                                return null;
+                                        }
+                                })
+                                .filter(java.util.Objects::nonNull)
+                                .collect(java.util.stream.Collectors.toSet());
+        }
+
+        private String resolvePrincipal(Principal principal) {
+                if (principal != null && principal.getName() != null && !principal.getName().isBlank()) {
+                        return principal.getName();
+                }
+                Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+                if (authentication != null && authentication.getName() != null && !authentication.getName().isBlank()) {
+                        return authentication.getName();
+                }
+                throw new UnauthorizedException("Missing authentication principal");
+        }
+
+        private String extractBearerToken(String authorizationHeader) {
+                if (authorizationHeader == null || authorizationHeader.isBlank()) {
+                        throw new UnauthorizedException("Missing Authorization header");
+                }
+                if (!authorizationHeader.toLowerCase(Locale.ROOT).startsWith("bearer ")) {
+                        throw new UnauthorizedException("Invalid Authorization header format");
+                }
+                String token = authorizationHeader.substring("Bearer ".length()).trim();
+                if (token.isBlank()) {
+                        throw new UnauthorizedException("Missing bearer token");
+                }
+                return token;
+        }
 
     @GetMapping("/service/me")
     @SecurityRequirement(name = "bearerAuth")

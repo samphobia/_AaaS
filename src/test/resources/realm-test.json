@@ -33,6 +33,23 @@
       "directAccessGrantsEnabled": true,
       "standardFlowEnabled": true,
       "optionalClientScopes": ["service.read"],
+      "protocolMappers": [
+        {
+          "name": "custom-attributes-claim",
+          "protocol": "openid-connect",
+          "protocolMapper": "oidc-usermodel-attribute-mapper",
+          "consentRequired": false,
+          "config": {
+            "user.attribute": "custom_attributes",
+            "claim.name": "custom_attributes",
+            "jsonType.label": "String",
+            "id.token.claim": "true",
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true",
+            "multivalued": "false"
+          }
+        }
+      ],
       "secret": "auth-client-secret"
     }
   ]

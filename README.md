@@ -10,7 +10,8 @@
 
 ### 2) JWT auth is resolved
 - `JwtAuthenticationFilter` validates bearer token through the identity provider client.
-- Authorities are built from both roles (`ROLE_*`) and scopes (`SCOPE_*`).
+- Authorities are built from both Keycloak roles (`ROLE_*`) and scopes (`SCOPE_*`).
+- Role/scopes extraction merges token introspection fields and JWT claims to remain compatible with Keycloak claim variations.
 - Principal resolution fallback order:
   1. token validation `subject`
   2. JWT `sub` claim
@@ -22,6 +23,8 @@
 - `POST /auth/register`: creates Keycloak user, tenant-scoped auth mapping, and validates/persists tenant-defined custom attributes during signup.
 - `POST /auth/login`: returns access/refresh tokens.
 - `POST /auth/refresh`: refreshes tokens.
+- `POST /auth/forgot-password`: triggers Keycloak password reset action email for the provided email.
+- `POST /auth/change-password`: authenticated password change using current password validation.
 - `POST /auth/service-token`: client-credentials flow for service accounts.
 - `GET /auth/me`: loads current tenant-scoped user + returns custom attributes map.
 - `GET /auth/service/me`: returns machine principal and granted scopes.
@@ -71,6 +74,7 @@ Example:
 - If tenant schema marks attributes as required, signup fails unless those values are provided with valid types.
 - This guarantees each tenant can enforce distinct signup payload requirements from day one.
 - The recommended bootstrap path is creating tenant + schema via `POST /tenants` before first signup.
+- After persistence, attributes are synchronized to Keycloak user attributes under `custom_attributes` (JSON string), enabling token-level claim projection.
 
 ### C) Read attributes
 - `GET /auth/me` returns:
@@ -106,6 +110,18 @@ Flyway migration: `V4__custom_user_attributes.sql`
   - single default tenant from config
   - API key header not required for tenant resolution
   - Swagger/OpenAPI is mode-aware and hides tenant-key requirement in standalone mode
+
+## Keycloak Authorization Ownership
+
+- Keycloak is now the source of truth for runtime authorization.
+- On registration, users are assigned Keycloak realm role `USER`.
+- `/auth/me` resolves roles from authenticated token authorities (`ROLE_*`) and falls back to stored mapping roles only when token roles are absent (compatibility mode).
+
+## Access Token Custom Attribute Claim
+
+- Realm/client configuration now includes a protocol mapper that projects user attribute `custom_attributes` to token claim `custom_attributes`.
+- `custom_attributes` contains a JSON object string of tenant-defined user attributes.
+- Claim is emitted to access token, ID token, and userinfo response.
 
 ## Documentation Rule
 

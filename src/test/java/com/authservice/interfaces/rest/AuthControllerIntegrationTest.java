@@ -201,4 +201,29 @@ class AuthControllerIntegrationTest {
                 .andExpect(jsonPath("$.accessToken").value("service-access"))
                 .andExpect(jsonPath("$.tokenType").value("Bearer"));
     }
+
+        @Test
+        void forgotPassword_ShouldReturnAccepted() throws Exception {
+                mockMvc.perform(post("/auth/forgot-password")
+                                                .contentType(MediaType.APPLICATION_JSON)
+                                                .header("X-API-KEY", "dev-default-api-key")
+                                                .content("{" +
+                                                                "\"email\":\"user@mail.com\"" +
+                                                                "}"))
+                                .andExpect(status().isAccepted());
+        }
+
+        @Test
+        void changePassword_ShouldReturnNoContent() throws Exception {
+                mockMvc.perform(post("/auth/change-password")
+                                                .principal(() -> "kc-1")
+                                                .header("Authorization", "Bearer token-value")
+                                                .header("X-API-KEY", "dev-default-api-key")
+                                                .contentType(MediaType.APPLICATION_JSON)
+                                                .content("{" +
+                                                                "\"currentPassword\":\"OldPass123!\"," +
+                                                                "\"newPassword\":\"NewPass123!\"" +
+                                                                "}"))
+                                .andExpect(status().isNoContent());
+        }
 }
