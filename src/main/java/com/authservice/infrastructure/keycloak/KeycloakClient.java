@@ -26,6 +26,7 @@ import org.springframework.web.client.RestClient;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -221,6 +222,7 @@ public class KeycloakClient implements IdentityProviderClient {
     @CircuitBreaker(name = "keycloak")
     public void syncUserAttributes(String userId, Map<String, Object> attributes) {
         String adminToken = requestAdminToken();
+        ensureCustomAttributesUserProfile(adminToken);
         Map<String, Object> userRepresentation = getUserRepresentation(adminToken, userId);
 
         Map<String, List<String>> existingAttributes = extractExistingAttributes(userRepresentation);
@@ -234,6 +236,69 @@ public class KeycloakClient implements IdentityProviderClient {
                 .body(userRepresentation)
                 .retrieve()
                 .toBodilessEntity();
+    }
+
+    @SuppressWarnings("unchecked")
+    private void ensureCustomAttributesUserProfile(String adminToken) {
+        try {
+            String profileEndpoint = keycloakProperties.getBaseUrl() + "/admin/realms/" + keycloakProperties.getRealm() + "/users/profile";
+            Map<String, Object> profileConfig = restClient.get()
+                    .uri(profileEndpoint)
+                    .header("Authorization", "Bearer " + adminToken)
+                    .retrieve()
+                    .body(Map.class);
+
+            if (profileConfig == null) {
+                return;
+            }
+
+            Object attributesObject = profileConfig.get("attributes");
+            if (!(attributesObject instanceof List<?> rawAttributes)) {
+                return;
+            }
+
+            boolean alreadyPresent = rawAttributes.stream()
+                    .filter(Map.class::isInstance)
+                    .map(Map.class::cast)
+                    .map(attribute -> attribute.get("name"))
+                    .filter(String.class::isInstance)
+                    .map(String.class::cast)
+                    .anyMatch(CUSTOM_ATTRIBUTES_KEY::equals);
+
+            if (alreadyPresent) {
+                return;
+            }
+
+            List<Map<String, Object>> updatedAttributes = new ArrayList<>();
+            for (Object rawAttribute : rawAttributes) {
+                if (rawAttribute instanceof Map<?, ?> map) {
+                    updatedAttributes.add(new HashMap<>((Map<String, Object>) map));
+                }
+            }
+
+            updatedAttributes.add(Map.of(
+                    "name", CUSTOM_ATTRIBUTES_KEY,
+                    "displayName", CUSTOM_ATTRIBUTES_KEY,
+                    "permissions", Map.of(
+                            "view", List.of("admin", "user"),
+                            "edit", List.of("admin")
+                    ),
+                    "multivalued", false
+            ));
+
+            Map<String, Object> updatedProfile = new HashMap<>(profileConfig);
+            updatedProfile.put("attributes", updatedAttributes);
+
+            restClient.put()
+                    .uri(profileEndpoint)
+                    .header("Authorization", "Bearer " + adminToken)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body(updatedProfile)
+                    .retrieve()
+                    .toBodilessEntity();
+        } catch (HttpStatusCodeException ex) {
+            log.warn("Unable to ensure custom attribute profile in Keycloak status={} body={}", ex.getStatusCode(), ex.getResponseBodyAsString());
+        }
     }
 
     @Override

@@ -744,3 +744,19 @@ java.lang.StringIndexOutOfBoundsException: Range [-1, 7460) out of bounds for le
 2026.04.08 16:59:25 INFO  Created report: Optional[file:///Users/lateblackhole/Documents/KeyAuth/src/test/java/com/authservice/interfaces/rest/AuthFlowContainerIT.java]
 2026.04.08 16:59:25 INFO  empty definition using pc, found symbol in pc: _empty_/HttpMethod#POST# (full report at: "/Users/lateblackhole/Documents/KeyAuth/.metals/.reports/metals-full/2026-04-08/r_empty-definition_16-59-26-455.md")
 2026.04.08 17:00:33 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:19:26 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:21:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:21:02 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:22:35 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/CustomAttributeApplicationService.java. Using fallback presentation compiler.
+2026.04.08 17:28:58 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:28:59 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:28:59 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:29:00 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:31:07 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java. Using fallback presentation compiler.
+2026.04.08 17:32:50 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java. Using fallback presentation compiler.
+2026.04.08 17:32:50 WARN  no build target for: /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/infrastructure/keycloak/KeycloakClient.java
+2026.04.08 17:32:50 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+2026.04.08 17:35:59 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/application/service/CustomAttributeApplicationService.java. Using fallback presentation compiler.
+2026.04.08 17:54:19 INFO  no build target found for /Users/lateblackhole/Documents/KeyAuth/src/main/java/com/authservice/config/SecurityConfig.java. Using fallback presentation compiler.
+Apr 08, 2026 5:54:19 PM org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 355
