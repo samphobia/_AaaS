@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/src/main/java/com/authservice/interfaces/rest/GlobalExceptionHandler.java:org/springframework/http/converter/HttpMessageNotReadableException#
+file://<WORKSPACE>/src/main/java/com/authservice/interfaces/rest/GlobalExceptionHandler.java
+empty definition using pc, found symbol in pc: org/springframework/http/converter/HttpMessageNotReadableException#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 638
+uri: file://<WORKSPACE>/src/main/java/com/authservice/interfaces/rest/GlobalExceptionHandler.java
+text:
+```scala
 package com.authservice.interfaces.rest;
 
 import com.authservice.application.exception.ConflictException;
@@ -10,7 +21,7 @@ import jakarta.validation.ConstraintViolationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.http.converter.@@HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -77,3 +88,10 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(status).body(body);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: org/springframework/http/converter/HttpMessageNotReadableException#

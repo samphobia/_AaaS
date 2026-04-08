@@ -1,6 +1,8 @@
 package com.authservice.infrastructure.keycloak;
 
 import com.authservice.application.exception.UnauthorizedException;
+import com.authservice.application.exception.ConflictException;
+import com.authservice.application.exception.BadRequestException;
 import com.authservice.application.service.IdentityProviderClient;
 import com.authservice.application.service.model.TokenPair;
 import com.authservice.application.service.model.TokenValidationResult;
@@ -77,6 +79,12 @@ public class KeycloakClient implements IdentityProviderClient {
             assignRealmRolesWithAdminToken(adminToken, userId, Set.of("USER"));
             return userId;
         } catch (HttpStatusCodeException ex) {
+            if (ex.getStatusCode() == HttpStatus.CONFLICT) {
+                throw new ConflictException("User already exists in identity provider");
+            }
+            if (ex.getStatusCode() == HttpStatus.BAD_REQUEST) {
+                throw new BadRequestException("Invalid user data for identity provider");
+            }
             log.error("Failed to create user in Keycloak. status={} body={}", ex.getStatusCode(), ex.getResponseBodyAsString());
             throw new IllegalStateException("Failed to create user in identity provider");
         }

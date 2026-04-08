@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.authservice.infrastructure.security.ApiKeyTenantResolverTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s -- in com.authservice.infrastructure.security.ApiKeyTenantResolverTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.381 s -- in com.authservice.infrastructure.security.ApiKeyTenantResolverTest

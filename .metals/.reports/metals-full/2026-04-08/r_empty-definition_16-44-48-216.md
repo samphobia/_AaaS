@@ -1,3 +1,14 @@
+error id: file://<WORKSPACE>/src/main/java/com/authservice/application/service/AuthApplicationService.java:_empty_/AuthUser#builder#id#keycloakUserId#externalUserId#
+file://<WORKSPACE>/src/main/java/com/authservice/application/service/AuthApplicationService.java
+empty definition using pc, found symbol in pc: _empty_/AuthUser#builder#id#keycloakUserId#externalUserId#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2559
+uri: file://<WORKSPACE>/src/main/java/com/authservice/application/service/AuthApplicationService.java
+text:
+```scala
 package com.authservice.application.service;
 
 import com.authservice.application.exception.ConflictException;
@@ -53,7 +64,7 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
         AuthUser user = AuthUser.builder()
                 .id(UUID.randomUUID())
                 .keycloakUserId(keycloakUserId)
-                .externalUserId(command.getExternalUserId())
+                .@@externalUserId(command.getExternalUserId())
                 .roles(Set.of(Role.USER))
                 .tenantId(tenant.getId())
                 .active(true)
@@ -74,14 +85,14 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
     @Override
     public TokenPair login(LoginCommand command) {
         TokenPair tokenPair = identityProviderClient.getToken(command.getUsername(), command.getPassword());
-        auditLogService.logEvent("LOGIN", "SUCCESS", TenantContextHolder.getTenantIdOrNull(), command.getUsername(), "token_issued=true");
+        auditLogService.logEvent("LOGIN", "SUCCESS", TenantContextHolder.getRequiredTenantId(), command.getUsername(), "token_issued=true");
         return tokenPair;
     }
 
     @Override
     public TokenPair refresh(RefreshTokenCommand command) {
         TokenPair tokenPair = identityProviderClient.refreshToken(command.getRefreshToken());
-        auditLogService.logEvent("REFRESH", "SUCCESS", TenantContextHolder.getTenantIdOrNull(), "anonymous", "token_refreshed=true");
+        auditLogService.logEvent("REFRESH", "SUCCESS", TenantContextHolder.getRequiredTenantId(), "anonymous", "token_refreshed=true");
         return tokenPair;
     }
 
@@ -90,7 +101,7 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
         auditLogService.logEvent(
                 "SERVICE_TOKEN",
                 "SUCCESS",
-                TenantContextHolder.getTenantIdOrNull(),
+                TenantContextHolder.getRequiredTenantId(),
                 clientId,
                 "scope=" + (scope == null ? "" : scope)
         );
@@ -102,7 +113,7 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
         auditLogService.logEvent(
                 "FORGOT_PASSWORD",
                 "SUCCESS",
-                TenantContextHolder.getTenantIdOrNull(),
+                TenantContextHolder.getRequiredTenantId(),
                 email,
                 "reset_email_requested=true"
         );
@@ -129,3 +140,10 @@ public class AuthApplicationService implements RegisterUserUseCase, LoginUseCase
         return authUser;
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/AuthUser#builder#id#keycloakUserId#externalUserId#

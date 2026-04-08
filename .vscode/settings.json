@@ -5,7 +5,8 @@
     "mvn spring-boot:run": true,
     "mvn -q -DskipITs test": true,
     "mvn -q -Dtest=AuthFlowContainerIT test": true,
-    "mvn -q spring-boot:run": true
+    "mvn -q spring-boot:run": true,
+    "mvn -Dtest=AuthApplicationServiceTest,AuthControllerIntegrationTest test": true
   },
   "files.watcherExclude": {
     "**/target": true

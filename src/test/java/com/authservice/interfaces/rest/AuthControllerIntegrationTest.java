@@ -121,6 +121,23 @@ class AuthControllerIntegrationTest {
     }
 
     @Test
+    void register_ShouldReturnBadRequest_WhenPayloadIsMalformedJson() throws Exception {
+        String malformedPayload = "{" +
+                "\"email\":\"test@test.com\"," +
+                "\"password\":\"Test234$\"," +
+                "\"externalUserId\":\"crm-10001\"," +
+                "\"attributes\":{\"name\":\"JohnDoe\",}" +
+                "}";
+
+        mockMvc.perform(post("/auth/register")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .header("X-API-KEY", "dev-default-api-key")
+                        .content(malformedPayload))
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("$.message").value("Malformed JSON request"));
+    }
+
+    @Test
     void login_ShouldReturnTokens() throws Exception {
         when(authApplicationService.login(any())).thenReturn(TokenPair.builder()
                 .accessToken("access")

@@ -43,10 +43,6 @@ public class OpenApiConfig {
                                 .components(components)
                                 .addSecurityItem(new SecurityRequirement().addList(BEARER_AUTH));
 
-                if (multiTenantMode) {
-                        openAPI.addSecurityItem(new SecurityRequirement().addList(API_KEY_AUTH));
-                }
-
                 return openAPI;
         }
 
