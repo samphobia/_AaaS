@@ -1,7 +1,18 @@
+error id: file://<WORKSPACE>/src/main/java/com/authservice/config/SecurityConfig.java:com/authservice/infrastructure/security/TenantFilter#
+file://<WORKSPACE>/src/main/java/com/authservice/config/SecurityConfig.java
+empty definition using pc, found symbol in pc: com/authservice/infrastructure/security/TenantFilter#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 152
+uri: file://<WORKSPACE>/src/main/java/com/authservice/config/SecurityConfig.java
+text:
+```scala
 package com.authservice.config;
 
 import com.authservice.infrastructure.security.JwtAuthenticationFilter;
-import com.authservice.infrastructure.security.TenantFilter;
+import com.authservice.infrastructure.security.@@TenantFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +36,6 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/actuator/health").permitAll()
                     .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
-                    .requestMatchers("/tenants").permitAll()
                     .requestMatchers("/auth/login", "/auth/register", "/auth/refresh", "/auth/service-token", "/auth/forgot-password").permitAll()
                     .requestMatchers("/auth/service/me").hasAuthority("SCOPE_service.read")
                         .requestMatchers("/auth/me").authenticated()
@@ -36,3 +46,10 @@ public class SecurityConfig {
                 .build();
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: com/authservice/infrastructure/security/TenantFilter#

@@ -24,6 +24,7 @@ public class TenantFilter extends OncePerRequestFilter {
     protected boolean shouldNotFilter(HttpServletRequest request) {
         String uri = request.getRequestURI();
         return "/actuator/health".equals(uri)
+                || ("/tenants".equals(uri) && "POST".equalsIgnoreCase(request.getMethod()))
                 || uri.startsWith("/swagger-ui")
                 || uri.startsWith("/v3/api-docs")
                 || "/swagger-ui.html".equals(uri);
